@@ -1,4 +1,35 @@
 @import "tailwindcss";
+
+:root {
+  --page: #fafafa;
+  --card: #ffffff;
+  --line: #e4e4e7;
+  --edge: #d4d4d8;
+  --main: #18181b;
+  --muted: #52525b;
+  --accent: #0f766e;
+}
+
+.dark {
+  --page: #09090b;
+  --card: #18181b;
+  --line: #27272a;
+  --edge: #3f3f46;
+  --main: #fafafa;
+  --muted: #a1a1aa;
+  --accent: #2dd4bf;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-edge: var(--edge);
+  --color-main: var(--main);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+}
+
 @keyframes scroll {
   to {
     transform: translateX(-50%);
