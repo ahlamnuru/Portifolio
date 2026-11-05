@@ -3,10 +3,8 @@ import {
   SiJavascript,
   SiTypescript,
   SiReact,
-  SiReactrouter,
   SiTailwindcss,
   SiGit,
-  SiVite,
 } from "react-icons/si";
 
 const skills = [
