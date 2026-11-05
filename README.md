@@ -1,75 +1,30 @@
-# React + TypeScript + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website. I built it for my bootcamp to practice React Router, and it is also the place where I show my projects to people.
 
-Currently, two official plugins are available:
+Live site: https://your-site.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it is
 
-## React Compiler
+The site has four pages: home, about, projects and contact. The home page shows who I am, my tools in a moving row, and three of my best projects. The about page tells a little about me and shows my learning path. The projects page shows all my projects, and you can click a tool like React or Tailwind to see only the projects that use it. Every project also has its own page with more details and a link to the code. The contact form sends a message straight to my email. There is also a button to switch between night and light mode.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What I used
 
-## Expanding the ESLint configuration
+I used React with TypeScript, Vite, Tailwind CSS and React Router. The icons are from react-icons, and the contact form uses Formspree.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## What I practiced
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The main goal was React Router, so I used a shared layout with an Outlet so the menu stays the same on every page. I made a dynamic route like /projects/:id and read the id with useParams to find the right project. For the filter I used useSearchParams, so the selected tool is saved in the address and you can share the link. I also made a 404 page for wrong addresses.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## How to run it
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Then open the link that shows in the terminal.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## What I want to add later
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+I want to add more project screenshots, write more about each project, and maybe add a small blog.
