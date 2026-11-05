@@ -23,7 +23,19 @@ function ProjectDetail() {
       </Link>
 
       <h1 className="mt-6 text-5xl font-bold">{project.title}</h1>
-      <p className="mt-4 max-w-2xl text-lg text-zinc-400">{project.description}</p>
+      <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+        {project.description}
+      </p>
+
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={project.title}
+          className="mt-8 w-full rounded-2xl border border-zinc-800"
+        />
+      ) : (
+        <div className="mt-8 h-64 w-full rounded-2xl bg-zinc-800" />
+      )}
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.tech.map((item) => (
@@ -36,14 +48,14 @@ function ProjectDetail() {
         ))}
       </div>
 
-      <div className="mt-8 flex gap-4">
-        <a href={project.liveUrl} className="rounded-lg bg-teal-400 px-6 py-3 font-medium text-zinc-950">
-          Live site
-        </a>
-        <a href={project.codeUrl} className="rounded-lg border border-zinc-700 px-6 py-3 font-medium">
-          Code
-        </a>
-      </div>
+      <a
+        href={project.codeurl}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-8 inline-block rounded-lg bg-teal-400 px-6 py-3 font-medium text-zinc-950"
+      >
+        View code on GitHub
+      </a>
     </div>
   );
 }

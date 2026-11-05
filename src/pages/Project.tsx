@@ -2,12 +2,11 @@ import { useSearchParams } from "react-router-dom";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 
+const allTech = ["React", "TypeScript", "Tailwind", "JS", "Html", "API"];
+
 function Projects() {
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedTech = searchParams.get("tech");
-
-  // a list of every tool, with no repeats
-  const allTech = [...new Set(projects.flatMap((project) => project.tech))];
 
   // if a tool is selected, keep only the projects that use it
   const shownProjects = selectedTech
@@ -17,8 +16,11 @@ function Projects() {
   return (
     <div>
       <h1 className="text-5xl font-bold">Projects</h1>
+      <p className="mt-3 text-lg text-zinc-400">
+        Click a tool to see only the projects that use it.
+      </p>
 
-      <div className="mt-6 mb-8 flex flex-wrap gap-3">
+      <div className="mb-8 mt-6 flex flex-wrap gap-3">
         <button
           onClick={() => setSearchParams({})}
           className={`rounded-full px-5 py-2 ${
@@ -33,7 +35,9 @@ function Projects() {
             key={item}
             onClick={() => setSearchParams({ tech: item })}
             className={`rounded-full px-5 py-2 ${
-              selectedTech === item ? "bg-teal-400 text-zinc-950" : "border border-zinc-700"
+              selectedTech === item
+                ? "bg-teal-400 text-zinc-950"
+                : "border border-zinc-700"
             }`}
           >
             {item}

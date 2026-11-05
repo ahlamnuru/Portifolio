@@ -7,7 +7,17 @@ type Props = {
 
 function ProjectCard({ project }: Props) {
   return (
-    <article className="flex flex-col gap-3 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+    <article className="flex flex-col gap-3 rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-44 w-full rounded-lg object-cover object-top"
+        />
+      ) : (
+        <div className="h-44 w-full rounded-lg bg-zinc-800" />
+      )}
+
       <h3 className="text-xl font-bold">{project.title}</h3>
       <p className="text-zinc-400">{project.description}</p>
 
@@ -22,7 +32,10 @@ function ProjectCard({ project }: Props) {
         ))}
       </div>
 
-      <Link to={`/projects/${project.id}`} className="font-medium hover:text-teal-400">
+      <Link
+        to={`/projects/${project.id}`}
+        className="font-medium hover:text-teal-400"
+      >
         View details →
       </Link>
     </article>
