@@ -24,3 +24,24 @@ const skills = [
   {name: "MongoDB", icon: SiVite},
   {name: "PostgreSQL", icon: SiVite},
 ];
+function Skills() {
+
+  const allSkills = [...skills, ...skills];
+  return (
+    <div className="overflow-hidden border-y border-zinc-800 py-6">
+      <div className="marquee-track flex w-max">
+        {allSkills.map((skill, index) => (
+          <div
+            key={index}
+            className="mr-12 flex items-center gap-3 text-lg text-zinc-400"
+          >
+            <skill.icon className="text-2xl text-teal-400" />
+            <span>{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Skills;
